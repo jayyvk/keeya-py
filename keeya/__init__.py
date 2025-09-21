@@ -1,20 +1,20 @@
 """
-Keeya - AI-Powered Python Library for Data Science
+Keeya - AI-Powered Python Code Generation
 
-Simple library that uses AI to generate and execute code on-demand.
+Simple library that uses AI to generate clean, executable Python code.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.7.4"
 __author__ = "Keeya Team"
 
-from .core import generate, clean, analyze, visualize, train
-from .utils import get_available_models
+from .keeya import generate, clean, analyze, visualize, train, setup, help
 
 __all__ = [
     "generate",
-    "clean", 
+    "clean",
     "analyze",
-    "visualize",
+    "visualize", 
     "train",
-    "get_available_models"
+    "setup",
+    "help"
 ]

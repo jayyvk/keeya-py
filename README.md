@@ -1,164 +1,83 @@
-# Keeya
+# 🚀 Keeya - AI-Powered Python Code Generation
 
-**AI-Powered Python Library for Code Generation**
+[![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI version](https://badge.fury.io/py/keeya.svg)](https://badge.fury.io/py/keeya)
 
-Keeya is a simple Python library that uses AI to generate clean, executable Python code on-demand. Unlike traditional code completion tools, Keeya runs in your Python environment and generates production-ready code based on your requirements.
+Transform natural language into executable Python code for data analysis, cleaning, and machine learning.
 
-## Installation
+## ✨ Features
 
+- 🤖 **Natural Language to Code**: Generate Python code from plain English
+- 🧹 **Smart Data Cleaning**: Automatically handle missing values, duplicates, and data types
+- 📊 **Instant Analysis**: Get comprehensive statistics and insights
+- 📈 **Auto Visualizations**: Generate relevant plots based on your data
+- 🎯 **ML Pipeline Generation**: Build complete machine learning workflows
+- 🔒 **Safe & Secure**: Review code before execution, powered by Google Gemini
+
+## 🚀 Quick Start
+
+### Installation
 ```bash
 pip install keeya
 ```
 
-## Setup
-
-1. **Get your OpenRouter API key** from [OpenRouter](https://openrouter.ai/)
-2. **Set your API key:**
-   ```bash
-   export OPENROUTER_API_KEY="your_key_here"
-   ```
-
-## Quick Start
-
+### Setup (One-time)
 ```python
 import keeya
-
-# Generate any Python function
-code = keeya.generate("function to add two numbers")
-print(code)
-
-# Generate complex algorithms
-code = keeya.generate("function to implement quicksort")
-print(code)
+keeya.setup()  # Enter your free Gemini API key
 ```
 
-## Examples
-
-### Basic Code Generation
-
+### Basic Usage
 ```python
-import keeya
-
-# Generate any Python function
-code = keeya.generate("function to add two numbers")
-print(code)
-# Output: def add_numbers(a, b): return a + b
-
-# Generate data processing function
-code = keeya.generate("function to calculate mean of a list")
-print(code)
-# Output: def calculate_mean(numbers): return sum(numbers) / len(numbers)
-```
-
-### Data Science Operations
-
-```python
-import keeya
 import pandas as pd
+import keeya
 
 # Load your data
 df = pd.read_csv('data.csv')
 
-# AI-powered data cleaning
-cleaned_df = keeya.clean(df)
+# Generate code for any task
+code = keeya.generate("create a function to calculate fibonacci numbers")
 
-# AI-powered analysis
-insights = keeya.analyze(df)
+# Clean your data
+cleaned_code = keeya.clean(df)
 
-# AI-powered visualization
-keeya.visualize(df, plot_type='scatter')
-
-# AI-powered ML training
-model = keeya.train(df, target='price')
-```
-
-## Features
-
-- **Simple API**: Just call `keeya.generate()` or `keeya.clean()`
-- **AI-Powered**: Uses AI to generate code based on your data
-- **Context-Aware**: Understands your DataFrames and generates appropriate code
-- **Smart Model Selection**: Automatically chooses the best AI model based on task complexity
-- **Jupyter Ready**: Works seamlessly in notebooks and Colab
-- **Safe Execution**: Safely executes generated code and returns results
-- **Multi-Model Support**: GPT-OSS-20B (fast), Qwen2.5-32B (balanced), Qwen3-480B (powerful)
-
-## Examples
-
-### Basic Functions
-
-```python
-# Generate utility functions
-code = keeya.generate("function to reverse a string")
-code = keeya.generate("function to find duplicates in a list")
-code = keeya.generate("function to sort a dictionary by values")
-```
-
-### Data Science
-
-```python
-# Data cleaning
-cleaned_df = keeya.clean(df)
-
-# Data analysis
+# Analyze your data  
 analysis = keeya.analyze(df)
 
-# Visualizations
-keeya.visualize(df, plot_type='histogram')
-keeya.visualize(df, plot_type='correlation')
+# Create visualizations
+viz_code = keeya.visualize(df)
 
-# Machine learning
-model = keeya.train(df, target='target_column')
-predictions = model.predict(test_df)
+# Build ML pipeline
+ml_code = keeya.train(df, target='target_column')
 ```
 
-## Smart Model Selection
+## 🎯 Why Keeya?
 
-Keeya automatically selects the best AI model based on task complexity:
+- **Simple**: One consistent API across all functions
+- **Smart**: Context-aware code generation based on your actual data
+- **Safe**: Always returns code for you to review and execute
+- **Free**: Powered by Google Gemini's free tier
+- **Fast**: Get results in seconds, not hours
 
-- **GPT-OSS-20B** (2-4 seconds): Fast fallback for simple tasks
-- **Qwen2.5-32B** (3-6 seconds): Sweet spot for balanced performance  
-- **Qwen3-480B** (6-12 seconds): Worth the wait for complex tasks
+## 🔑 Getting Your API Key
 
-### Manual Model Selection
+1. Visit [Google AI Studio](https://aistudio.google.com/app/apikey)
+2. Click "Create API Key"
+3. Copy the key and paste it when running `keeya.setup()`
 
-You can also specify a model manually:
+## 📖 Documentation
 
-```python
-# Use specific model
-code = keeya.generate("complex function", model="qwen3-480b")
-cleaned_df = keeya.clean(df, model="gpt-oss-20b")
+Run `keeya.help()` for detailed usage information and examples.
 
-# See available models
-models = keeya.get_available_models()
-print(models)
-```
+## 🤝 Contributing
 
-## API Reference
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-### `keeya.generate(prompt, model=None)`
-Generate Python code from natural language prompt.
+## 📄 License
 
-### `keeya.clean(df, model=None)`
-AI-powered data cleaning. Returns cleaned DataFrame.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### `keeya.analyze(df, model=None)`
-AI-powered data analysis. Returns analysis results.
+## ⚠️ Disclaimer
 
-### `keeya.visualize(df, plot_type=None, model=None)`
-AI-powered visualization. Creates and displays plots.
-
-### `keeya.train(df, target, model=None)`
-AI-powered ML model training. Returns trained model.
-
-### `keeya.get_available_models()`
-Get available models and their descriptions.
-
-## Requirements
-
-- Python 3.8+
-- pandas
-- requests
-
-## License
-
-MIT License
+Keeya generates code using AI. Always review generated code before executing in production environments.
