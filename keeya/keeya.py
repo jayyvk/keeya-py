@@ -22,13 +22,15 @@ warnings.filterwarnings('ignore')
 GENERATE_PROMPT = """You are a Python code generator. Generate clean, executable Python code based on the user's request.
 
 Requirements:
-- Return ONLY the Python code, no explanations or markdown
+- Return ONLY the Python code, no explanations, markdown, or duplicate outputs
 - Include helpful inline comments using #
 - Ensure code is syntactically correct and follows best practices
 - Use appropriate imports if needed
 - If creating a reusable result, store it in a variable called 'result'
+- Do NOT repeat the same code multiple times
+- Do NOT include example usage or duplicate implementations
 
-Focus on writing clean, readable code that accomplishes the exact task requested."""
+Generate the code once and only once. Focus on writing clean, readable code that accomplishes the exact task requested."""
 
 CLEAN_PROMPT = """You are a data cleaning expert. Generate Python code to clean the provided DataFrame.
 
@@ -198,7 +200,33 @@ def call_gemini_api(system_prompt: str, user_prompt: str, model: str = "gemini-1
                 if len(parts) > 0 and 'text' in parts[0]:
                     text = parts[0]['text'].strip()
                     text = text.replace('```python', '').replace('```', '').strip()
-                    return text
+                    
+                    # Remove duplicate code blocks and escape sequences
+                    lines = text.split('\n')
+                    cleaned_lines = []
+                    seen_lines = set()
+                    
+                    for line in lines:
+                        # Skip lines with escape sequences (like \n)
+                        if '\\n' in line or '\\t' in line:
+                            continue
+                            
+                        line_stripped = line.strip()
+                        
+                        # Skip empty lines and duplicates (but keep comments and unique code)
+                        if line_stripped and not line_stripped.startswith('#'):
+                            if line_stripped in seen_lines:
+                                continue
+                            seen_lines.add(line_stripped)
+                        cleaned_lines.append(line)
+                    
+                    # Join back and return
+                    cleaned_text = '\n'.join(cleaned_lines).strip()
+                    
+                    # Remove any remaining escape sequences
+                    cleaned_text = cleaned_text.replace('\\n', '\n').replace('\\t', '\t')
+                    
+                    return cleaned_text
         
         raise Exception("No text content found in API response")
         
