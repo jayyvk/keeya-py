@@ -1,4 +1,4 @@
-# 🚀 Keeya - AI-Powered Python Code Generation
+# 🚀 Keeya v1.0.0 - AI-Powered Python Code Generation
 
 [![PyPI version](https://badge.fury.io/py/keeya.svg)](https://badge.fury.io/py/keeya)
 
