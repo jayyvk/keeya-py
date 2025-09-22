@@ -4,12 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "keeya"
-version = "1.0.1"
-description = "AI-Powered Python Library for Code Generation"
+version = "1.0.2"
+description = "keeya.py - AI-Powered Python Code Generation"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Keeya Team", email = "hello@keeya.ai"}
+    {name = "Jay Kilaparthi", email = "jayakeerthk@gmail.com"}
 ]
 keywords = ["ai", "code-generation", "python", "automation", "gemini"]
 classifiers = [
@@ -37,9 +37,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/keeya"
-Repository = "https://github.com/yourusername/keeya.git"
-Issues = "https://github.com/yourusername/keeya/issues"
+Homepage = "https://github.com/jayyvk/keeya"
+Repository = "https://github.com/jayyvk/keeya.git"
+Issues = "https://github.com/jayyvk/keeya/issues"
 
 [project.scripts]
 keeya = "keeya.cli:main"

@@ -1,6 +1,6 @@
-# 🚀 Keeya v1.0.0 - AI-Powered Python Code Generation
+# 🚀 keeya.py - AI-Powered Python Code Generation
 
-[![PyPI version](https://badge.fury.io/py/keeya.svg?v=1.0.0)](https://badge.fury.io/py/keeya)
+[![PyPI version](https://badge.fury.io/py/keeya.svg)](https://badge.fury.io/py/keeya)
 
 Transform natural language into executable Python code for data analysis, cleaning, and machine learning.
 
