@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "keeya"
-version = "1.0.0"
+version = "1.0.1"
 description = "AI-Powered Python Library for Code Generation"
 readme = "README.md"
 license = {text = "MIT"}
